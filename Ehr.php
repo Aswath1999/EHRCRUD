@@ -5,14 +5,6 @@
     $_SESSION['url'] = $_SERVER['REQUEST_URI']; 
     require_once "./Login/authorize.php";
 ?>
-<form class="d-flex me-2" action="./CRUD/search.php">
-      <input class="form-control ms-auto me-2 my-2" style="width:250px" type="search" placeholder="Search" name="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2" type="submit">Search</button>
-</form>
-
-<Form action="./CRUD/createpatient.php">
-        <button class="btn btn-warning">Create patient</button>
-</Form>
     <?php  
         if ( isset($_SESSION['message']) )
             {
@@ -31,9 +23,22 @@
 ?>
   
 <section class="dashboard">
-    <div class="container">
-        <table class="table table-striped table-hover">
-            <thead>
+    <div class="container ">
+        <div class="row mt-3">
+            <div class="col col-sm-12 col-lg-6 pt-2">
+                <Form action="./CRUD/createpatient.php">
+                    <button class="btn btn-warning">Create patient</button>
+                </Form>
+            </div>
+            <div class="col col-sm-12 col-lg-6">
+                <form class="d-flex me-2" action="./CRUD/search.php">
+                    <input class="form-control ms-auto me-2 my-2" style="width:250px" type="search" placeholder="Search" name="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        <table class="table table-striped  table-bordered table-border table-hover">
+            <thead class="header" >
                 <tr>
                 <th scope="col">Index</th>
                 <th scope="col">Firstname</th>
@@ -68,11 +73,10 @@
                             </div>
                         </td>
                         <td>
-                            <div class="col-3">
-                                <div>
-                                    <a href="<?php echo './CRUD/Patient.php?id='.$patient['id'].''?>">View</a>
-                                    <a href="<?php echo './CRUD/deletepatient.php?id='.$patient['id'].''?>">Delete</a>
-                                </div>
+                            <div class="col-3 ">
+                                    <a class="button" href="<?php echo './CRUD/Patient.php?id='.$patient['id'].''?>">View</a>
+                                    <a class="btn btn-danger"href="<?php echo './CRUD/deletepatient.php?id='.$patient['id'].''?>">Delete</a>
+                            
                             </div>
                         </td>
                     </div>

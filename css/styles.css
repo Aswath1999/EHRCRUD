@@ -111,4 +111,16 @@
     
 }
 
-/* Css for Ehr page */
+/* Css for Ehr page and search page */
+.dashboard .container .table {
+    border:5px var(--title-color)
+}
+.dashboard .container .table .header{
+    background-color: var(--navbar-color);
+}
+
+.dashboard .container .table td .button-secondary{
+    text-decoration:none;
+
+}
+
