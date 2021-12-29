@@ -1,0 +1,114 @@
+/* Imports the font file */
+@import url(./fonts.css);
+
+
+/* css variables */ 
+@import url(./partials/_variables.css);
+
+/* import global styling */ 
+@import url(./partials/_globals.css);
+
+/* CSS for navbar */
+.bg-color{
+    background-color:var(--navbar-color);
+}
+.header_area .main-menu .nav-item .nav-link{
+    font: normal 500 20px/2px var(--roboto);
+    text-transform: uppercase;
+    padding: 1.7rem;
+    color: var(--title-color);
+}
+
+.header_area .main-menu .navbar-nav .nav-item .active{
+    background: var(--gradient-color);
+    background-clip: text;
+    position: relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header_area .main-menu .navbar-nav a:hover{
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.header_area .main-menu .navbar-nav a:hover::before{
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width:10vw;
+    height: 2px;
+    width: 80%;
+    border-bottom: 2px solid var( --border-color);  
+    box-shadow:5px 10px var(--shadow-color);
+}
+
+
+/* CSS for register and login */
+.Authorize .container{
+    margin-top: 2%;
+}
+.Authorize .container .row .column .card{
+    width:100%;
+    height: 100%;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.Authorize .container .row .column .card .card-image {
+    width: 100%;
+    height: 15vw;
+    object-fit:contain;
+    padding-top: 5px;
+}   
+.Authorize .container .row .column .card .card-body form{
+    font: normal 700 20px/2px var(--roboto);
+    text-align: left;
+    font: var(--roboto);
+}
+.Authorize .container .row .column .card .card-body form div{
+    font-size: 20px;
+    font-weight:600;
+}
+.Authorize .container .row .column .card .card-body form div>label{
+    display: block;
+    width: 100%
+}
+.Authorize .container .row .column .card .card-body form div>input{
+    display: block;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.Authorize .container .row .column .card .card-body .card-title{
+    font-size: 40px;
+    
+
+}
+.Authorize .container .row .column .card .card-body form>button{
+    font-size: 25px;
+    font-weight:600;
+    color: var(--title-color);
+    width: 100%;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    background-color: var(--primary-color);
+    transition: 0.3s ease-in-out;
+}
+.Authorize .container .row .column .card .card-body form>button:hover{
+    background-color:rgb(22, 177, 22) ;
+    box-shadow:  var(--shadow-color);
+}
+
+/* Css for success page */
+.success .container{
+    height: 100%;
+    width: 100%;
+    
+}
+
+/* Css for Ehr page */
