@@ -15,48 +15,71 @@
 <?php 
     if($_SERVER['REQUEST_METHOD']=='GET'){
         $Search=$_GET['Search'];
-        $sql="SELECT * FROM patient WHERE Doctor_ID='{$_SESSION['Doctor_id']}' AND  Firstname LIKE '%".$Search."%'";
+        $sql="SELECT * FROM patient WHERE Doctor_ID='{$_SESSION['Doctor_id']}' AND 
+         Firstname LIKE '%".$Search."%' OR Lastname LIKE '%".$Search."%' OR id LIKE '%".$Search."%'" ;
         $statement=$conn->prepare($sql);
-        $statement->execute();
-        $patientinfo=$statement->fetchAll(PDO::FETCH_ASSOC);
-        $length=count($patientinfo);    
+        if($statement->execute()){
+            $patientinfo=$statement->fetchAll(PDO::FETCH_ASSOC);
+            $length=count($patientinfo);
+        }
     }
 ?>
 <section class="dashboard">
     <div class="container">
-        <?php if($patientinfo): ?>
-            <?php for($i=0;$i<$length;$i++): ?>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Index</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if($patientinfo): ?>
+                <?php for($i=0;$i<$length;$i++): ?>
                 <?php  foreach($patientinfo as $patient):?>
-                    <?php  $i+=1;?>
+                <?php  $i+=1;?>
+                <tr >
                     <div class="row">
-                        <div class="col-3">
-                            <p><?php echo $i ?></p>
-                        </div>
-                        <div class="col-3">
-                            <div class="name">
-                                <p><?php echo $patient['Firstname'] ?></p>
+                        <th scope="col">
+                            <div class="col-3">
+                                <p><?php echo $i ?></p>
                             </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="name">
-                                <p><?php echo $patient['Lastname'] ?></p>
+                        </th>
+                        <td>
+                            <div class="col-3">
+                                <div class="name">
+                                    <p><?php echo $patient['Firstname'].'<br>'. $patient['id'] ?></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-3">
-                            <div>
-                                <a href="<?php echo './Patient.php?id='.$patient['id'].''?>">View</a>
-                                <a href="<?php echo './deletepatient.php?id='.$patient['id'].''?>">Delete</a>
+                        </td>
+                        <td>
+                            <div class="col-3">
+                                <div class="name">
+                                    <p><?php echo $patient['Lastname'] ?></p>
+                                </div>
                             </div>
-                        </div>
+                        </td>
+                        <td>
+                            <div class="col-3">
+                                <div>
+                                    <a href="<?php echo './Patient.php?id='.$patient['id'].''?>">View</a>
+                                    <a href="<?php echo './deletepatient.php?id='.$patient['id'].''?>">Delete</a>
+                                </div>
+                            </div>
+                        </td>
                     </div>
-                    <?php endforeach; ?>
+                </tr>
+                <?php endforeach; ?>
                 <?php endfor; ?>
-        <?php endif; ?>
+                 <?php endif; ?>
 
+
+            </tbody>
+        </table>
     </div>
 </section>
-
-
 
 
 

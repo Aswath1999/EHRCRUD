@@ -32,40 +32,60 @@
   
 <section class="dashboard">
     <div class="container">
-        <?php if($patientinfo): ?>
-            <?php for($i=0;$i<$length;$i++): ?>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Index</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if($patientinfo): ?>
+                <?php for($i=0;$i<$length;$i++): ?>
                 <?php  foreach($patientinfo as $patient):?>
-                    <?php  $i+=1;?>
+                <?php  $i+=1;?>
+                <tr >
                     <div class="row">
-                        <div class="col-3">
-                            <p><?php echo $i ?></p>
-                        </div>
-                        <div class="col-3">
-                            <div class="name">
-                                <p><?php echo $patient['Firstname'] ?></p>
+                        <th scope="col">
+                            <div class="col-3">
+                                <p><?php echo $i ?></p>
                             </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="name">
-                                <p><?php echo $patient['Lastname'] ?></p>
+                        </th>
+                        <td>
+                            <div class="col-3">
+                                <div class="name">
+                                    <p><?php echo $patient['Firstname'].'<br>'. $patient['id'] ?></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-3">
-                            <div>
-                                <a href="<?php echo './CRUD/Patient.php?id='.$patient['id'].''?>">View</a>
-                                <a href="<?php echo './CRUD/deletepatient.php?id='.$patient['id'].''?>">Delete</a>
+                        </td>
+                        <td>
+                            <div class="col-3">
+                                <div class="name">
+                                    <p><?php echo $patient['Lastname'] ?></p>
+                                </div>
                             </div>
-                        </div>
+                        </td>
+                        <td>
+                            <div class="col-3">
+                                <div>
+                                    <a href="<?php echo './CRUD/Patient.php?id='.$patient['id'].''?>">View</a>
+                                    <a href="<?php echo './CRUD/deletepatient.php?id='.$patient['id'].''?>">Delete</a>
+                                </div>
+                            </div>
+                        </td>
                     </div>
-                    <?php endforeach; ?>
+                </tr>
+                <?php endforeach; ?>
                 <?php endfor; ?>
-        <?php endif; ?>
+                 <?php endif; ?>
 
+
+            </tbody>
+        </table>
     </div>
 </section>
-                <!-- echo $patient['Firstname']. ' '.$patient['Lastname']. '<t></t>';
-                echo '<a href="./CRUD/Patient.php?id='.$patient['id'].'">View</a> ';
-                echo '<a href="./CRUD/deletepatient.php?id='.$patient['id'].'">Delete</a> <br>'; -->
                
 
  
