@@ -19,23 +19,24 @@
     <div class="container ">
         <div class="row mt-3">
             <div class="col col-sm-12 col-lg-6 pt-2">
-                <Form action="./CRUD/createpatient.php">
+                <Form action="./createpatient.php">
                     <button class="btn btn-warning">Create patient</button>
                 </Form>
             </div>
             <div class="col col-sm-12 col-lg-6">
-                <form class="d-flex me-2" action="./CRUD/search.php">
+                <form class="d-flex me-2" action="./search.php">
                     <input class="form-control ms-auto me-2 my-2" style="width:250px" type="search" placeholder="Search" name="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2" type="submit">Search</button>
                 </form>
             </div>
         </div>
-        <table class="table table-striped  table-bordered table-border table-hover">
+        <table class="table table-striped  table-bordered  table-hover">
             <thead class="header" >
                 <tr>
                 <th scope="col">Index</th>
                 <th scope="col">Firstname</th>
                 <th scope="col">Lastname</th>
+                <th scope="col">Patient_ID</th>
                 <th scope="col"></th>
                 </tr>
             </thead>
@@ -54,7 +55,7 @@
                         <td>
                             <div class="col-3">
                                 <div class="name">
-                                    <p><?php echo $patient['Firstname'].'<br>'. $patient['id'] ?></p>
+                                    <p><?php echo $patient['Firstname'] ?></p>
                                 </div>
                             </div>
                         </td>
@@ -66,8 +67,15 @@
                             </div>
                         </td>
                         <td>
+                            <div class="col-3">
+                                <div class="name">
+                                    <p><?php echo $patient['id'] ?></p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
                             <div class="col-3 ">
-                                    <a class="button" href="<?php echo './Patient.php?id='.$patient['id'].''?>">View</a>
+                                    <a class="btn btn-primary mb-2" href="<?php echo './Patient.php?id='.$patient['id'].''?>">View</a>
                                     <a class="btn btn-danger"href="<?php echo './deletepatient.php?id='.$patient['id'].''?>">Delete</a>
                             
                             </div>

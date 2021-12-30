@@ -6,7 +6,7 @@ require_once "../partials/navbar.php";
 <section class="Authorize">
     <div class="container  pt-2">
         <div class="row align-items-center">
-            <div class="column col-sm-12 col-lg-6 offset-lg-3">
+            <div class="column col-sm-12 col-lg-6 offset-lg-3 mb-4">
                 <div class="card ">  
                     <img class="card-image img-fluid" src="../drehr.png" alt="" >
                     <div class="card-body">

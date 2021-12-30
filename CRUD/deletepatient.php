@@ -14,6 +14,8 @@ $image=$statement->fetch(PDO::FETCH_ASSOC);
 if (file_exists("./image/".$id."/Profile/".$image['Profile_Image']."")){
     unlink("./image/".$id."/Profile/".$image['Profile_Image']."");
     echo "success";
+}else{
+  echo "failure";
 }
 $sql="SELECT Image FROM images WHERE Patient_Id=$id";
 $statement=$conn->prepare($sql);
@@ -27,13 +29,17 @@ if ($images){
   }
 }
 
-
-$sql="DELETE FROM patient,images USING patient 
-INNER JOIN images on patient.id=images.Patient_Id WHERE patient.id='$id'";
+$sql="DELETE FROM images WHERE Patient_Id='$id'";
+$statement=$conn->prepare($sql);
+if($statement->execute()){
+    $_SESSION['message']="The patient has been successfully deleted";
+}
+$sql="DELETE FROM patient WHERE id='$id'";
 $statement=$conn->prepare($sql);
 if($statement->execute()){
     $_SESSION['message']="The patient has been successfully deleted";
     header('Location: ../Ehr.php');
-}
+} 
+
 
 ?>

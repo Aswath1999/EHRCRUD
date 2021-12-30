@@ -87,7 +87,6 @@
 .Authorize .container .row .column .card .card-body .card-title{
     font-size: 40px;
     
-
 }
 .Authorize .container .row .column .card .card-body form>button{
     font-size: 25px;
@@ -113,14 +112,98 @@
 
 /* Css for Ehr page and search page */
 .dashboard .container .table {
-    border:5px var(--title-color)
+    font-size: 20px;
+    font-weight:600;
+   
 }
 .dashboard .container .table .header{
     background-color: var(--navbar-color);
+    font: normal 500 22px/30px var(--roboto);
 }
 
-.dashboard .container .table td .button-secondary{
-    text-decoration:none;
-
+/*Css for Patient page  */
+.Patient .container-fluid .row .col .text-center>img{
+    width:400px;
+    height: 250px;
+    border: 3px solid var(--title-color);
+    box-shadow:  var(--shadow-color);
 }
 
+.Patient .container-fluid .row .col .info{
+    font-size: 20px;
+    font-weight:500;
+    line-height: 20px;
+}
+.Patient .container-fluid .row .col span{
+    padding-left: 0.5em;
+    
+}
+/* Design accordion in patient page */
+.accordion img{
+    width:400px;
+    height: 250px;
+    border: 3px transparent var(--title-color);
+    transition: .6s ease;
+}
+.accordion  img:hover{
+    /* transform:translate(20px,-10px); */
+    transform:scale(1.1);
+    cursor: pointer;
+}
+.accordion .accordion-body div>p{
+    font-size: 20px;
+    font-weight:500;
+    line-height: 20px;
+}
+.accordion-body .button{
+    padding-right: 0%;
+    width:15rem;
+}
+
+
+/* css for create and edit patient */
+.Patient .container form div>label{
+    display:block;
+    font-size: 15px;
+    font-weight:500;
+    line-height: 20px;
+}
+.Patient .container form div>label.inline{
+    display:inline;
+    font-size: 15px;
+    font-weight:500;
+    line-height: 20px;
+}
+.Patient .container form div>input{
+    font-size: 15px;
+    font-weight:400;
+    line-height: 20px;
+    width:80%;
+}
+.Patient .container h3{
+    padding-left:4rem ;
+    margin-left: 4rem;
+}
+
+
+/* css for image upload */
+
+.image-upload form {
+    /* box-shadow:  var(--shadow-color); */
+    width:70%;
+}
+.image-upload form div>label{
+    display:block;
+    font-size: 15px;
+    font-weight:400;
+    line-height: 20px;
+}
+
+.image-upload form div>input{
+    font-size: 15px;
+    font-weight:400;
+    line-height: 20px;
+    width:80%;
+}
+
+/* Image popup css from W3schools */
