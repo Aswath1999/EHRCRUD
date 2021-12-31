@@ -9,6 +9,9 @@
 @import url(./partials/_globals.css);
 
 /* CSS for navbar */
+
+
+
 .bg-color{
     background-color:var(--navbar-color);
 }
@@ -149,6 +152,8 @@
     /* transform:translate(20px,-10px); */
     transform:scale(1.1);
     cursor: pointer;
+    box-shadow:  var(--shadow-color);
+
 }
 .accordion .accordion-body div>p{
     font-size: 20px;
@@ -206,4 +211,27 @@
     width:80%;
 }
 
-/* Image popup css from W3schools */
+/* home page css design */
+.home img{
+    width: 40rem;
+    height:40rem;
+    background: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+.home .container-fluid .row div.text strong{
+    font-size:40px;
+    line-height: 70px;
+    font-family:var(--roboto);
+    font-weight: 500;
+}
+.home .container-fluid .row div.text{
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    padding-left:5rem;
+    font-size: 30px;
+    font-weight:400;
+    line-height: 40px;
+}
+.home .container-fluid .row div.text span{
+    font-size: 1rem;
+}
