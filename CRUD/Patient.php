@@ -65,7 +65,7 @@ if ($patient): ?>
                 <div class="row mb-3">
                   <div class="col col-lg-6 col-sm-12">
                     <div class="text-center">
-                      <img class="img-fluid"  src="<?php echo "image/".$id."/".$image['Image']."" ?>" alt="">
+                      <img class="img-fluid img"  src="<?php echo "image/".$id."/".$image['Image']."" ?>" alt="<?php echo $image['Description'] ?>">
                     </div>
                   </div>
                   <div class="col col-sm-12  col-lg-5 col-md-12 align-self-center ">
@@ -116,7 +116,11 @@ if ($patient): ?>
   </section>
 
 
-
+  <div id="Modal" class="modalbox">  
+    <span class="close">&times;</span>
+    <img src="" class="modalbox-contents" id="img-big" alt="">
+    <div id="description"></div>
+  </div>
 
 
 
