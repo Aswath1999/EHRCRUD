@@ -2,7 +2,80 @@
 $ROOT="../";
 include "../partials/header.php";
 require_once "../partials/navbar.php";
+
+include "./validatepassword.php";
+
+
+try{  
+    if($_SERVER['REQUEST_METHOD']=='POST'){
+      $email=$_POST['emailid'];
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailerror = "Please enter valid email address";
+        header('Location: EHR/Register/Register.php');
+      }
+    //   add hash for sending it in email and verifying
+      $hash = md5(rand(0,1000));
+      $uname=$_POST['username'];
+      $DOB=$_POST['date'];
+      if(valid_password($_POST['password'])){
+        $pass=password_hash($_POST['password'],PASSWORD_DEFAULT);
+        // check whether password is good
+      }else{
+        $passworderror= "Invalid password.The password should have atleast special characters";
+      }
+    //   Check whetther username is unique in the database 
+      $sql="SELECT * FROM register WHERE Username=:uname";
+      $statement= $conn->prepare($sql);
+      $statement->bindParam(':uname',$uname,PDO::PARAM_STR);
+      $statement->execute();
+      $row1=$statement->fetch(PDO::FETCH_ASSOC);
+      if($row1){
+        $Usernameerror= 'Username already exits.Please enter a different username';
+      }
+      $sql="SELECT * FROM register WHERE Emailid=:email";
+      $statement= $conn->prepare($sql);
+      $statement->bindParam(':email',$email,PDO::PARAM_STR);
+      $statement->execute();
+      $row=$statement->fetch(PDO::FETCH_ASSOC);
+      if($row){
+        $emailerror= 'Email already exits.Please enter a different email id.';
+      }
+      if(!$row1 && !$row){
+        $sql="INSERT INTO register (Username,Emailid,Password,hash,DOB) VALUES(:uname,:email,:pass,:hash,:DOB)";
+        $statement= $conn->prepare($sql);
+        $statement->bindParam(':pass',$pass,PDO::PARAM_STR);
+        $statement->bindParam(':uname',$uname,PDO::PARAM_STR);
+        $statement->bindParam(':email',$email,PDO::PARAM_STR);
+        $statement->bindParam(':DOB',$DOB,PDO::PARAM_STR);
+        $statement->bindParam(':hash',$hash,PDO::PARAM_STR);
+        if($statement->execute()){
+          $to      = $email;
+          $header=array('From'=>'noreply@ehr.com','Reply-To'=>'noreply@ehr.com','X-Mailer'=>'PHP/'.phpversion());
+          $subject = 'Account Verification (www.DREHR.com)'; 
+          $message_body = '
+          Hello '.$uname.',
+          Thank you for signing up!
+          Kindly click this link to activate your account:
+          http://localhost/EHR/Register/verifyemail.php?email='.$email.'&hash='.$hash;  
+          if(mail( $to, $subject, $message_body,$header)){
+            $_SESSION['message']="Please check your email and verify.Please check the spam folder";
+            header('Location: ../success.php');  
+          }else{
+            $_SESSION['message']="Error with sending email";
+            header('Location: ../error.php'); 
+          }
+        }else{
+          $_SESSION['message'] = 'Oops, Something went wrong, Try again later';
+          header('Location: ../error.php'); 
+        } 
+      }
+    }
+}catch(Exception $e){
+    echo "Oops, Something went wrong!!!";
+}
+
 ?>
+
 <section class="Authorize">
     <div class="container  pt-2">
         <div class="row align-items-center">
@@ -11,15 +84,15 @@ require_once "../partials/navbar.php";
                     <img class="card-image img-fluid" src="../drehr.png" alt="" >
                     <div class="card-body">
                     <h5 class="card-title">Register</h5>
-                        <form  action="./Registervalidation.php"method="POST">
+                        <form  action="./Register.php"method="POST">
                             <div class="mb-3">
                                 <label for="username">Username: <br></label>
-                                <input type="text" name="username" value="<?php if(isset($_POST["username"])) echo $_POST["username"]; ?>" id="username" autofocus required>
+                                <input type="text" name="username" value="<?php if(isset($uname)) echo $uname; ?>" id="username" autofocus required>
                             </div>
-                            <?php if(isset($_SESSION['Username-error'])): ?>
+                            <?php if(isset($Usernameerror)): ?>
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <?php echo $_SESSION['Username-error'];
-                                        unset($_SESSION['Username-error'])
+                                    <?php echo $Usernameerror;
+                                        unset($Usernameerror)
                                     ?>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
@@ -27,12 +100,12 @@ require_once "../partials/navbar.php";
                             
                             <div class="mb-3">
                                 <label for="emailid">Email id:</label>
-                                <input type="email" id="emailid" name="emailid" required>
+                                <input type="email" id="emailid" name="emailid" value="<?php if(isset($_POST['emailid'])) echo $_POST['emailid']; ?>"required>
                             </div>
-                            <?php if(isset($_SESSION['email-error'])): ?>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <?php echo $_SESSION['email-error'];
-                                        unset($_SESSION['email-error']);
+                            <?php if(isset($emailerror)): ?>
+                                <div class="alert alert-warning alert-dismissible fade show">
+                                    <?php echo $emailerror;
+                                    unset($emailerror);
                                     ?>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
@@ -42,10 +115,10 @@ require_once "../partials/navbar.php";
                                 <label for="password">Password: </label>
                                 <input type="password" name="password" id="password" value="<?php if(isset($_POST["password"])) echo $_POST["password"]; ?>"required>
                             </div>
-                            <?php if(isset($_SESSION['password-error'])): ?>
+                            <?php if(isset($passworderror)): ?>
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <?php echo $_SESSION['password-error'];
-                                        unset($_SESSION['password-error'])
+                                    <?php echo $passworderror;
+                                        unset($passworderror);
                                     ?>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
