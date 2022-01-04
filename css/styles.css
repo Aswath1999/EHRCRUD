@@ -174,7 +174,7 @@
     margin: 20px auto;
     padding: 50px 10px;
     border-radius: 7px;
-    box-shadow: var(--box-shadow);
+    box-shadow:  var(--box-shadow);
 }
 
 .Patient .container form div>label{
