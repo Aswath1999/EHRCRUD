@@ -34,20 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $statement=$conn->prepare($sql);
             if($statement->execute()){
                 $_SESSION['message'] = "Your password has been reset successfully!";
-                header('Location: ../home.php');  
+                header('Location: ../success.php');  
             }else{
                 $_SESSION['message'] = "Something wen't wrong, Try again later!";
-                header('Location: ../Ehr.php'); 
+                header('Location: ../error.php'); 
             }
         }else{
-            $_SESSION['message'] = "Passwords don't match.";
-            header('Location: ./newpassword.php?email='.$email.'&hash='.$hash);
+            $message = "Passwords don't match.";
         }
      
     }else{
-        $_SESSION['message']= "Password is too weak!!";
-        // echo "no";
-        header('Location: ./newpassword.php?email='.$email.'&hash='.$hash);
+        $message= "Password is too weak!!";
     }
    
 }
@@ -56,19 +53,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container  pt-2">
         <div class="row align-items-center">
             <div class="column col-lg-6 offset-lg-3">
-                <div class="card ">  
+                <div class="card">  
                     <img class="card-image img-fluid" src="../drehr.png" alt="" >
                     <div class="card-body">
                     <h5 class="card-title">Change Password </h5>
-                    <?php if(isset($_SESSION['message'])): ?>
+                    <?php if(isset($message)): ?>
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <?php echo $_SESSION['message'];
-                                      unset($_SESSION['message']);
+                                <?php echo $message;
+                                      unset($message);
                                 ?>
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                     <?php endif; ?>
-                    <form  action="./checknewpassword.php"method="POST">  
+                    <form  action="#"method="POST">  
                         <div class="mb-3">
                             <label for="password">New password:</label>
                             <input type="password" id="password" name="password" required autofocus>
