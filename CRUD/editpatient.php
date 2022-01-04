@@ -63,7 +63,8 @@
     $statement->bindParam(':Consent',$consent,PDO::PARAM_STR);
     $statement->bindParam(':notes',$Notes,PDO::PARAM_STR);
     $editpatient=$statement->execute();
-    // echo "success";
+    header('Location: ./Patient.php?id='.$id.'');
+    
   }
 
 ?>
@@ -87,11 +88,11 @@
                             ?>
                             </div>
                     <?php endif; ?>    
-                    <div class="mb-3">
+                    <div class="mb-3 ">
                         <label class="mb-2" for="Firstname">Firstname: </label>
                         <input type="text" name="Firstname" value="<?php if($patient["Firstname"]) echo $patient["Firstname"]; ?>" id="Firstname" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 ">
                         <label class="mb-2" for="Lastname">Lastname: </label>
                         <input type="text" name="Lastname" value="<?php if($patient["Lastname"]) echo $patient["Lastname"]; ?>" id="Lastname" required>
                     </div>
@@ -107,42 +108,42 @@
                         <input type="text" name="DOB" value="<?php if($patient["DOB"]) echo $patient["DOB"]; ?>" id="datepicker"required>
                     </div>
                     <div class="mb-3">
-                        <label class="pe-2 inline" for="">Gender:</label>
+                        <label class=" inline" for="">Gender:</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="Sex" style="width: 20px;" value="Male" id="Sex"required>
-                            <label class="form-check-label" for="Sex">
-                                Male
+                            <input class="form-check-input" type="radio" name="Sex" style="width: 15px;" value="Male" id="Sex"required>
+                            <label class="form-check-label inline" for="Sex">
+                            &nbsp;Male
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" value="Female" style="width: 20px;" name="Sex" id="Sex"required >
-                            <label class="form-check-label" for="Sex">
-                                Female
+                            <input class="form-check-input" type="radio" value="Female" style="width: 15px;" name="Sex" id="Sex"required >
+                            <label class="form-check-label inline" for="Sex">
+                            &nbsp; Female
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="Sex" style="width: 20px;" value="N/A" id="Sex" >
-                            <label class="form-check-label" for="Sex">
-                                N/A
+                            <input class="form-check-input" type="radio" name="Sex" style="width: 15px;" value="N/A" id="Sex" >
+                            <label class="form-check-label inline" for="Sex">
+                            &nbsp;N/A
                             </label>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="mb-2" for="Profile_pic">Insert Profile image: </label>
-                        <input type="file" 
-                            name="Profile" 
-                            accept=".jpg,.png,.jpeg" id="Profile_pic">
-                        <!-- <img src="<?php if(file_exists('./image/'.$patient['id'].'/Profile/'.$patient['Profile_image'])) echo './image/'.$patient['id'].'/Profile/'.$patient['Profile_image'] ?>" alt="" width="160" height="160"> -->
+                    <div class="">
+                        <label for="file-input"><i class="fas fa-upload"></i> &nbsp; Choose Image</label>
+                        <input type="file" id="file-input" name="Profile" style="display:none;" accept="image/png, image/jpeg" multiple>
+                        <p id="num-of-files">No Files Chosen</p>
+                        <div id="images"></div> 
                     </div>
                     <div class="mb-3">
                         <label class="mb-2"    for="Notes">Notes</label>
                         <textarea name="Notes" id="notes" cols="50" rows="3" style=" vertical-align: middle"></textarea> 
                     </div>
-                    <div class="form-check form-check-inline mb-3">
-                        <input  class="form-check-input" type="checkbox" style="width: 20px;" id="consent" name="consent"value="Yes">
-                        <label class="form-check-label mb-2" for="consent">Do you consent to share your data?</label>
+                    <div class="form-check form-check-inline mb-3 check">
+                        <input  class="form-check-input" type="checkbox" style="width: 15px;" id="consent" name="consent"value="Yes">
+                        <label class="form-check-label " for="consent"> &nbsp; Do you consent to share your data?
+                        </label>
                     </div>
-                    <div>
+                    <div class="mb-3">
                         <button class="btn btn-success" type="Submit">Submit</button>
                     </div>
 

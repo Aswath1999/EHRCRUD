@@ -60,8 +60,9 @@
         if(!$patient){
             $_SESSION['message']="Cannot create patient.Something went wrong";
             header('Location: ../error.php');
-        }
+        }else{
         header('Location: ./Patient.php?id='.$nextId.'');
+        }
     }
 
 
@@ -103,39 +104,39 @@
                     <div class="mb-3">
                         <label class="pe-2 inline" for="">Gender:</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" style="width: 20px;" type="radio" name="Sex" value="Male" id="Sex"required>
-                            <label class="form-check-label" for="Sex">
-                                Male
+                            <input class="form-check-input" style="width: 15px;" type="radio" name="Sex" value="Male" id="Sex"required>
+                            <label class="form-check-label inline" for="Sex">
+                               &nbsp; Male
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" style="width: 20px;" value="Female" name="Sex" id="Sex"required >
-                            <label class="form-check-label" for="Sex">
-                                Female
+                            <input class="form-check-input" type="radio" style="width: 15px;" value="Female" name="Sex" id="Sex"required >
+                            <label class="form-check-label inline" for="Sex">
+                               &nbsp; Female
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" style="width: 20px;" name="Sex" value="N/A" id="Sex" >
-                            <label class="form-check-label" for="Sex">
-                                N/A
+                            <input class="form-check-input" type="radio" style="width: 15px;" name="Sex" value="N/A" id="Sex" >
+                            <label class="form-check-label inline" for="Sex">
+                               &nbsp; N/A
                             </label>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label class="mb-2" for="Profile_pic">Insert Profile image: </label>
-                        <input type="file" 
-                            name="Profile" 
-                            accept=".jpg,.png,.jpeg" id="Profile_pic">
+                    <div class="">
+                        <label for="file-input"><i class="fas fa-upload"></i> &nbsp; Choose Image</label>
+                        <input type="file" id="file-input" name="Profile" style="display:none;" accept="image/png, image/jpeg" multiple>
+                        <p id="num-of-files">No Image Chosen</p>
+                        <div id="images"></div> 
                     </div>
                     <div class="mb-3">
                         <label  class="mb-2"  for="Notes">Notes:</label>
                         <textarea name="Notes" id="notes" cols="50" rows="3" ></textarea> 
                     </div>
-                    <div class="form-check form-check-inline mb-3">
-                        <input class="form-check-input" style="width: 20px;" type="checkbox" id="consent" name="consent"value="Yes">
-                        <label class="mb-2"  class="form-check-label" for="consent"> Do you consent to share your data?</label>
+                    <div class="form-check form-check-inline mb-3 check">
+                        <input class="form-check-input" style="width: 15px;" type="checkbox" id="consent" name="consent"value="Yes">
+                        <label class="mb-2"  class="form-check-label" for="consent">&nbsp; Do you consent to share your data?</label>
                     </div>
-                    <div>
+                    <div class="mb-3">
                         <button class="btn btn-success" type="Submit">Submit</button>
                     </div>
 
