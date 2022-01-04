@@ -193,22 +193,91 @@
 
 /* css for image upload */
 
-.image-upload form {
-    /* box-shadow:  var(--shadow-color); */
-    width:70%;
+.image-upload .container{
+    background-color: #ffffff;
+    width: 55%;
+    position: relative;
+    text-align: center;
+    margin:  50px auto;
+    padding: 50px 20px;
+    border-radius: 7px;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.05);
 }
-.image-upload form div>label{
-    display:block;
-    font-size: 15px;
-    font-weight:400;
-    line-height: 20px;
+.image-upload input[type="file"]{
+    display: none;
+}
+.image-upload div>label{
+    display: block; 
+}
+div.nonfileinput label{ 
+    position: relative;
+    text-align: left;
+    margin-left:11rem ;
+    font-size: 1rem;
+    font-weight: 500;
+}
+@media screen and (max-width:800px) {
+    div.nonfileinput label{
+        margin-left:0px ;
+        text-align: center;
+        font-size: 1rem;
+    }
+}
+div.nonfileinput input{
+    padding: 10px;
+    display: block;
+    margin: auto;
+    width: 50%;
+    border:2px solid #137d25;
+    border-radius: 5px;
+}
+div.nonfileinput textarea{
+    display: block;
+    margin: auto;
+    width: 50%;
+    border:2px solid #137d25;
+    border-radius: 5px;
+}
+div.nonfileinput button{
+    width: 50%;
 }
 
-.image-upload form div>input{
-    font-size: 15px;
-    font-weight:400;
-    line-height: 20px;
-    width:80%;
+.file>label{
+    display: block;
+    position: relative;
+    background-color: #025bee;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    padding: 18px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.image-upload .container p{
+
+    margin: 10px 0 0 0;
+}
+
+.image-upload #images{
+    width: 50%;
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+figure{
+    width: 45%;
+}
+.image-upload img{
+    width: 100%;
+}
+figcaption{
+    text-align: center;
+    font-size: 1rem;
 }
 /* Image popup mostly from w3schools */
 .modalbox{
@@ -254,6 +323,7 @@
   .close:hover,
   .close:focus {
     color: rgba(255, 1, 1, 0.342);
+    transform: rotate(-180deg);
     text-decoration: none;
     cursor: pointer;
   }

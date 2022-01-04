@@ -54,36 +54,40 @@ if (isset($_POST['upload'])) {
 
 <section class="image-upload">
     <div class="container">
-        <div class="row justify-content-center align-items-center ">
-            <div class="col col-lg-7 offset-lg-4 align-self-center mt-5">
-                <form action="./insert.php?id=<?php echo $_GET['id']?>" method="POST" enctype="multipart/form-data" >
-                    <h3 class="mb-4 px-5">Upload Image</h3>
-                    <div class="mb-2">
-                        <input type="file"  name="uploadfile[]" accept=".jpg,.jpeg,.png" multiple required>
-                    </div>
-                    <input type="hidden" id="PatientId" name="PatientId" value="<?php echo $_GET['id']?>">
-                    <div class="mb-2">
-                        <label class="mb-1"for="Location">Location:</label>
-                        <input type="text" id="Location" name="Location" placeholder="Image position">
-                    </div>
-                    <div class="mb-2">
-                        <label class="mb-1"for="Date">Date:</label>
-                        <input type="date" id="Date" name="Date" placeholder="Date of Image"required>
-                    </div>
-                    <div class="mb-2">
-                        <label for="Description" class="mb-1">Description: </label>
-                        <textarea name="Description" id="Description" cols="46" rows="3"></textarea>
-                    </div>
-                    <div class="mb-2">
-                        <button type="submit" class="btn btn-success mb-3" 
-                                name="upload">
-                            UPLOAD
-                        </button>
-                    </div>
-                </form>
-            </div>
+        <div class="row">
+            <form action="./insert.php?id=<?php echo $_GET['id']?>" method="POST" enctype="multipart/form-data" >
+                <h3 class="mb-4 px-5">Upload Image</h3>
+                <div class="file">
+                    <label for="file-input"><i class="fas fa-upload"></i> &nbsp; Choose Images</label>
+                    <input type="file" id="file-input" name="uploadfile[]"  accept="image/png, image/jpeg" multiple>
+                    <p id="num-of-files">No Files Chosen</p>
+                    <div id="images"></div>
+                </div>
+                <input type="hidden" id="PatientId" name="PatientId" value="<?php echo $_GET['id']?>">
+                <div class="mb-2 nonfileinput">
+                    <label class="mb-1"for="Location">Location:</label>
+                    <input type="text" id="Location" name="Location" placeholder="Location in body">
+                </div>
+                <div class="mb-2 nonfileinput">
+                    <label class="mb-1"for="Date">Date:</label>
+                    <input type="date" id="Date" name="Date" placeholder="Date of Image" required>
+                </div>
+                <div class="mb-3 nonfileinput">
+                    <label for="Description" class="mb-1">Description: </label>
+                    <textarea name="Description" id="Description" cols="46" rows="3"></textarea>
+                </div>
+                <div class="mb-2 nonfileinput">
+                    <button type="submit" class="btn btn-warning mb-3" 
+                            name="upload">
+                        UPLOAD
+                    </button>
+                </div>
+            </form>
         </div>
-    </div>
+    </div>          
 </section>
 
 
+<?php 
+    require_once  __DIR__."/../partials/footer.php";
+?>

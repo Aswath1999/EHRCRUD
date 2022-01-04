@@ -58,7 +58,7 @@ if ($patient): ?>
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#image">
           <div class="accordion-body">
             <div class="text-center button mb-3  ms-auto">
-              <a class="btn btn-outline-success ms-auto img" href="../ImageCRUD/insert.php?id=<?php echo $patient['id']?>">Insert new Image</a>
+              <a class="btn btn-outline-success ms-auto " href="../ImageCRUD/insert.php?id=<?php echo $patient['id']?>">Insert new Image</a>
             </div>
             <?php if($images){ ?>
               <?php foreach($images as $image){ ?>
@@ -127,6 +127,5 @@ if ($patient): ?>
 <?php endif;?>
   
 <?php 
-
-    require_once  __DIR__."/../partials/footer.php";
+  require_once  __DIR__."/../partials/footer.php";
 ?>
