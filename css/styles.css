@@ -174,7 +174,7 @@
     margin: 20px auto;
     padding: 50px 10px;
     border-radius: 7px;
-    box-shadow: 0px 20px 35px rgba(0,0,0,0.05);
+    box-shadow: var(--box-shadow);
 }
 
 .Patient .container form div>label{
@@ -246,7 +246,7 @@
     margin:  50px auto;
     padding: 50px 20px;
     border-radius: 7px;
-    box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+    box-shadow: var(--box-shadow);
 }
 .image-upload input[type="file"]{
     display: none;
@@ -411,4 +411,23 @@ figcaption{
 }
 .home .container-fluid .row div.text span{
     font-size: 1rem;
+}
+
+/* CSS for success and error */
+.Result .container{
+    background-color:var(--navbar-color) ;
+    width: 55%;
+    position: relative;
+    text-align: center;
+    margin:  100px auto;
+    padding: 50px 20px;
+    border-radius: 7px;
+    box-shadow: var(--box-shadow);
+}
+.Result h3{
+    font-family: var(--roboto);
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 2.5rem;
+    color: rgba(180, 14, 14, 0.726);
 }

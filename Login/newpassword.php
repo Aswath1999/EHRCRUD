@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $pass=password_hash($password,PASSWORD_DEFAULT);
         if($password==$confirmpassword){
             $new_password = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "UPDATE register SET Password='$password', hash='$hash' WHERE Emailid='$email'";
+            $sql = "UPDATE register SET Password='$new_password', hash='$hash' WHERE Emailid='$email'";
             $statement=$conn->prepare($sql);
             if($statement->execute()){
                 $_SESSION['message'] = "Your password has been reset successfully!";

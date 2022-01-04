@@ -58,6 +58,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                     <?php endif; ?>    
+                    <?php if(isset( $_SESSION['message']) && !empty( $_SESSION['message'])): ?>
+                            <div class="alert alert-danger alert-dismissible fade show " role="alert">
+                            <?php echo $_SESSION['message'];
+                                unset($_SESSION['message']);
+                            ?>
+                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                    <?php endif; ?>    
                         <form  action="./login.php"method="POST">  
                             <div class="mb-3">
                                 <label for="emailid">Email id:</label>
