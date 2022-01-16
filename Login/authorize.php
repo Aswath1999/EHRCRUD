@@ -1,3 +1,4 @@
+// Check whether user is logged in or not.
 <?php 
 if(!(isset($_SESSION["loggedin"])  && $_SESSION["loggedin"] == "TRUE")) {
     $_SESSION["message"]="You must be logged in";

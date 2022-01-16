@@ -15,7 +15,7 @@
         if(!isset($_POST['consent'])){
             $consent="No";
         }else{
-        $consent=$_POST['consent'];
+            $consent=$_POST['consent'];
         }
         if(!isset($_POST['Notes'])){
             $Notes="";

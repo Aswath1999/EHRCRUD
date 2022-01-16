@@ -12,32 +12,35 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $statement->bindParam(':email',$email,PDO::PARAM_STR);
         $statement->execute();
         $logininfo=$statement->fetch(PDO::FETCH_ASSOC);
+        // check if email exists in database
         if($logininfo){
-        $password=password_verify($_POST['password'],$logininfo['Password']);
-        if($password){
-            $_SESSION['Doctor_id']=$logininfo['ID'];
-            $_SESSION['loggedin'] = "TRUE";
-            $_SESSION['username'] = $logininfo['Username'];
-            $_SESSION['Email']=$logininfo['Emailid'];
-            if($logininfo["Active"]){
-                if(isset($_SESSION['url'])){
-                    $url = $_SESSION['url']; 
+            // check whether password is in database.
+            $password=password_verify($_POST['password'],$logininfo['Password']);
+            if($password){
+                // store information in session to verify and grant access
+                $_SESSION['Doctor_id']=$logininfo['ID'];
+                $_SESSION['loggedin'] = "TRUE";
+                $_SESSION['username'] = $logininfo['Username'];
+                $_SESSION['Email']=$logininfo['Emailid'];
+                if($logininfo["Active"]){
+                    if(isset($_SESSION['url'])){
+                        $url = $_SESSION['url']; 
+                    }
+                    else {
+                        $url = "../home.php"; 
+                    }
+                    header('Location:'.$url);  
+                }else{
+                    $message= "The account hasn't been activated yet"; 
                 }
-                else {
-                    $url = "../home.php"; 
-                }
-                header('Location:'.$url);  
             }else{
-                $message= "The account hasn't been activated yet"; 
+                $message= "Userid or password doesn't match" ;
             }
         }else{
-            $message= "Userid or password doesn't match" ;
-        }
-        }else{
-        $message= "The username doesn't exist in the database"; 
+            $message= "The username doesn't exist in the database"; 
         }
     }
-  }
+}
 
 
 

@@ -5,17 +5,18 @@ require_once "../partials/navbar.php";
 
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ){
     $email=$_POST['emailid'];
+    // Chech whether email is valid or not
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $_Session['email-error'] = "Invalid email format";
+        $emailerror = "Invalid email format";
     }
     $sql="SELECT * FROM register WHERE Emailid=:email";
     $statement= $conn->prepare($sql);
     $statement->bindParam(':email',$email,PDO::PARAM_STR);
     $statement->execute();
     $user=$statement->fetch(PDO::FETCH_ASSOC);
+    // check whether the email id exists or not in database
     if(!$user){
-        $_Session['email-error']="Emailid doesn't exist";
-        header('Location: ./forgot.php');
+        $emailerror="Emailid doesn't exist";
     }else{
             $email = $user['Emailid'];
             $hash = $user['Hash'];
@@ -56,10 +57,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ){
                             <label for="emailid">Email id:</label>
                             <input type="email" id="emailid" name="emailid" required autofocus>
                         </div>
-                        <?php if(isset($_SESSION['email-error'])): ?>
+                        <?php if(isset($emailerror)): ?>
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <?php echo $_SESSION['email-error'];
-                                        unset($_SESSION['email-error']);
+                                    <?php echo $emailerror;
+                                        unset($emailerror);
                                     ?>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
