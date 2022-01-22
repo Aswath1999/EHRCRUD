@@ -20,18 +20,19 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ){
     }else{
             $email = $user['Emailid'];
             $hash = $user['Hash'];
+            $from='noreply@drehr.com';
             $username=$user['Username'];
             $_SESSION['message'] = "<p>Please check your email <span>$email</span>"
             . " for a confirmation link to complete your password reset!</p>";
             $to      = $email;
             $subject = 'Password Reset Link ( www.DREHR.com )';
-            $message_body = '
+            $message = '
                 Hallo ' .$username. ',
                 You have requested password reset!
                 Please click this link to reset your password:
                 http://localhost/EHR/Login/newpassword.php?email='.$email.'&hash='.$hash;
             
-            if(mail($to,$subject,$message_body)){
+            if(sendmail($to,$from,$subject,$message)){
                 $_SESSION['message']="Please check your email and verify.Please check the spam folder";
                 header('Location: ../success.php');  
             }else{

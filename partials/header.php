@@ -23,6 +23,40 @@
         { 
             session_start(); 
         } 
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\Exception;
+        require_once __DIR__ . '/../PHPMailer/PHPMailer/src/Exception.php';
+        require_once __DIR__ . '/../PHPMailer/PHPMailer/src/PHPMailer.php';
+        require_once __DIR__ . '/../PHPMailer/PHPMailer/src/SMTP.php';
 
-        
+        function sendmail($to,$from, $subject, $message){
+
+            // SEND MAIL by PHP MAILER
+            $mail = new PHPMailer();
+            $mail->CharSet = 'UTF-8';
+            $mail->isSMTP(); // Use SMTP protocol
+            // $mail->SMTPDebug = 2;
+            $mail->Host = 'smtp.gmail.com'; // Specify  SMTP server
+            $mail->SMTPAuth = true; // Auth. SMTP
+            $mail->Username = 'noreplydrehr@gmail.com'; // Mail who send by PHPMailer
+            $mail->Password = 'tzndqovomhswghwt'; // your pass mail box
+            $mail->SMTPSecure = 'tls'; // Accept SSL
+            $mail->Port = 587; // port of your out server
+            $mail->setFrom($from); // Mail to send at
+            $mail->addAddress($to); // Add sender
+            $mail->addReplyTo($from); // Adress to reply
+            $mail->isHTML(true); // use HTML message
+            $mail->Subject = $subject;
+            $mail->Body = $message;
+  
+            // SEND
+            if( !$mail->send() ){
+                $_SESSION['message']="Error with sending email";
+            }
+            else{
+                $_SESSION['message']="Please check your email and verify.Please check the spam folder";
+                return true;
+            }
+  
+        }
     ?>

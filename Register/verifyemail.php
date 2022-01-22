@@ -1,4 +1,5 @@
 <?php 
+$ROOT="../";
 include "../partials/header.php";
 if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash'])){
     $email=$_GET['email'];

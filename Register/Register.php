@@ -50,18 +50,16 @@ try{
         $statement->bindParam(':hash',$hash,PDO::PARAM_STR);
         if($statement->execute()){
           $to      = $email;
-          $header=array('From'=>'noreply@ehr.com','Reply-To'=>'noreply@ehr.com','X-Mailer'=>'PHP/'.phpversion());
+          $from    ='noreply@drehr.com';
           $subject = 'Account Verification (www.DREHR.com)'; 
-          $message_body = '
+          $message = '
           Hello '.$uname.',
           Thank you for signing up!
           Kindly click this link to activate your account:
           http://localhost/EHR/Register/verifyemail.php?email='.$email.'&hash='.$hash;  
-          if(mail( $to, $subject, $message_body,$header)){
-            $_SESSION['message']="Please check your email and verify.Please check the spam folder";
+          if(sendmail( $to,$from, $subject, $message)){
             header('Location: ../success.php');  
           }else{
-            $_SESSION['message']="Error with sending email";
             header('Location: ../error.php'); 
           }
         }else{
