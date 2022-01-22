@@ -168,7 +168,7 @@
 
 /* css for create and edit patient */
 .Patient .container{
-    background-color: #FB9E00;
+    background-image: linear-gradient( 108.9deg,  rgba(251,140,0,1) 11.2%, rgba(0,139,155,1) 88.9% ); 
     width: 60%;
     position: relative;
     margin: 20px auto;
