@@ -10,7 +10,9 @@
 
 /* CSS for navbar */
 
-
+body{
+    background: linear-gradient(to bottom, #cc99ff 8%, #ffffff 100%) fixed;
+}
 
 .bg-color{
     background-color:var(--navbar-color);
