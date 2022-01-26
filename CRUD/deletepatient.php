@@ -33,6 +33,7 @@ $sql="DELETE FROM images WHERE Patient_Id='$id'";
 $statement=$conn->prepare($sql);
 if($statement->execute()){
     $_SESSION['message']="The patient has been successfully deleted";
+    header('Location: ../Ehr.php');
 }
 $sql="DELETE FROM patient WHERE id='$id'";
 $statement=$conn->prepare($sql);

@@ -19,6 +19,14 @@
 <section class="dashboard">
     <div class="container">
         <div class="row mt-3">
+            <?php if(isset(  $_SESSION['message']) && !empty(  $_SESSION['message'])): ?>
+                <div class="alert alert-danger alert-dismissible fade show " role="alert">
+                    <?php echo  $_SESSION['message'];
+                        unset( $_SESSION['message']);
+                    ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>    
             <div class="col col-sm-12 col-lg-6 pt-2">
                 <Form action="./CRUD/createpatient.php">
                     <button class="btn btn-warning">Create patient</button>
