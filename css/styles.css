@@ -160,7 +160,7 @@ body{
 .accordion .accordion-body div>p{
     font-size: 20px;
     font-weight:500;
-    line-height: 20px;
+    line-height: 30px;
 }
 .accordion-body .button{
     padding-right: 0%;
@@ -170,7 +170,8 @@ body{
 
 /* css for create and edit patient */
 .Patient .container{
-    background-image: linear-gradient( 108.9deg,  rgba(251,140,0,1) 11.2%, rgba(0,139,155,1) 88.9% ); 
+    /* background: linear-gradient(to top right, #ffcc00 0%, #ff6699 100%);  */
+    /* background-color: #ffffff; */
     width: 60%;
     position: relative;
     margin: 20px auto;
@@ -241,7 +242,7 @@ body{
 /* css for image upload */
 
 .image-upload .container{
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     width: 55%;
     position: relative;
     text-align: center;
@@ -304,7 +305,7 @@ div.nonfileinput button{
 }
 .image-upload .container p{
 
-    margin: 10px 0 0 0;
+    margin: 10px 0 10px 0;
 }
 
 .image-upload #images{

@@ -52,8 +52,8 @@ if (isset($_POST['upload'])) {
         
 ?>
 
-<section class="image-upload">
-    <div class="container">
+<section class="image-upload ">
+    <div class="container ">
         <div class="row">
             <form action="./insert.php?id=<?php echo $_GET['id']?>" method="POST" enctype="multipart/form-data" >
                 <h3 class="mb-4 px-5">Upload Image</h3>

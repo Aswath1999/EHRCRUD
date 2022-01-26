@@ -71,7 +71,7 @@ if ($patient): ?>
                   <div class="col col-sm-12  col-lg-5 col-md-12 align-self-center ">
                     <p><strong>Location: </strong><?php echo $image['Location'] ?></p>
                     <p><strong>Date of Image: </strong><?php echo $image['Date'] ?></p>
-                    <p><strong>Description: </strong><?php echo $image['Description'] ?></p>
+                    <p><strong>Description: </strong><?php echo  $image['Description'] ?></p>
                     <a class="btn btn-danger" href="<?php echo "../ImageCRUD/deleteimage.php?id=".$image['id']."&image=".$image['Image']."&pid=".$id."" ?>">Delete Image</a>
                   </div>
                 </div>
