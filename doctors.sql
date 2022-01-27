@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Jan 2022 um 08:51
+-- Erstellungszeit: 27. Jan 2022 um 20:39
 -- Server-Version: 10.4.22-MariaDB
 -- PHP-Version: 8.0.13
 
@@ -41,8 +41,7 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `Patient_Id`, `Image`, `Location`, `Date`, `Description`) VALUES
-(62, 43, 'camp.jpg', 'cam', '2021-12-07', 'NICE'),
-(63, 43, 'camp3.jpg', 'cam', '2021-12-07', 'NICE');
+(69, 41, 'heart.jpg', 'Heart', '2022-01-05', 'Looks fine and there are no major problems.');
 
 -- --------------------------------------------------------
 
@@ -69,9 +68,10 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`id`, `Firstname`, `Lastname`, `DOB`, `Age`, `Sex`, `Doctor_ID`, `Notes`, `Profile_image`, `Consent`, `Date`) VALUES
-(41, 'Jigender', 'Bhaji', '1999-03-24', 22, 'Male', 50, 'Healthy', 'camp1.jpg', 'Yes', '2021-12-30 14:29:19'),
-(43, 'Jack ', 'Philander', '1999-12-15', 22, 'Male', 50, '', 'profile.jpg', 'No', '2021-12-30 17:14:17'),
-(45, 'Baki', 'Stteven', '2000-04-05', 22, 'Male', 50, 'healthy', 'schoolboy.png', 'Yes', '2022-01-04 17:47:53');
+(41, 'Jigender', 'Bhaji', '1999-03-24', 22, 'Male', 50, 'The patient is not healthy', 'safariboy.png', 'No', '2021-12-30 14:29:19'),
+(47, 'Baki', 'Steeve', '1999-10-29', 22, 'Male', 50, 'The patient looks healthy ', 'schoolboy.png', 'Yes', '2022-01-26 19:26:09'),
+(48, 'Steve', 'Philander', '1999-10-20', 23, 'Male', 50, 'The patient is healthy and doesn\'t suffer from any symptoms', 'schoolboy.png', 'Yes', '2022-01-27 18:16:49'),
+(50, 'Baki', 'Manny', '2022-01-12', 22, 'Male', 0, 'Healthy', 'profile.jpg', 'Yes', '2022-01-27 19:12:17');
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,8 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`ID`, `Username`, `Emailid`, `DOB`, `Password`, `Hash`, `Active`) VALUES
-(50, 'Aswath', 'csk.aswath@gmail.com', '2021-12-01', '$2y$10$zgyWOdUTCO45pc4GLq2Lo.FdozfZt.s9LP8dtqjJuTOGQFnQV8m1K', '$2y$10$Zvh4SDZv75j2m59Zv2nJEO/pQbIMyrE08JLsHE646hyMIE93A9TQu', 1);
+(50, 'Aswath', 'csk.aswath@gmail.com', '2021-12-01', '$2y$10$jQDnnWX1K.9sPoKyRxr3CeW4rXf5LuAJlQm3/DinrzJcU4BRgEp6a', '$2y$10$Zvh4SDZv75j2m59Zv2nJEO/pQbIMyrE08JLsHE646hyMIE93A9TQu', 1),
+(63, 'Strange', 'c.aswath99@gmail.com', '2022-01-15', '$2y$10$NOxxhCEpxVOGF9z31l46xuEXepctEw7HaVOGaBRb1OtuRPn9hs4pm', '362e80d4df43b03ae6d3f8540cd63626', 1);
 
 --
 -- Indizes der exportierten Tabellen
@@ -129,19 +130,19 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT für Tabelle `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT für Tabelle `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT für Tabelle `register`
 --
 ALTER TABLE `register`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
