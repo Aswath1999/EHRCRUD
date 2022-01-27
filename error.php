@@ -4,7 +4,7 @@
     require_once "./partials/navbar.php";
 ?>
  
-<section class="success">
+<section class="Result">
     <div class="container ">
         <div class="d-flex align-items-center">
             <?php if(isset($_SESSION['message'])){
