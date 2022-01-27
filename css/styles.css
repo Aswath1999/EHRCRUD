@@ -61,7 +61,7 @@ body{
     width:100%;
     height: 100%;
     text-align: center;
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);  
 }
 
 .Authorize .container .row .column .card .card-image {
@@ -422,7 +422,48 @@ figcaption{
 .home .container-fluid .row div.text span{
     font-size: 1rem;
 }
-
+.home .container-fluid .row.header .col h1{
+    font-weight: 500;
+    line-height: 70px;
+    margin-top:0.2rem;
+    margin-left: 4rem;
+} 
+.home .container-fluid .row.improved-collab .col h3{
+    text-align:center;
+    line-height: 10px;
+    font-weight:500;
+} 
+.home .container-fluid .row.improved-collab .col{
+    margin-left: 5rem;
+    font-weight: 500;
+    text-align: center;
+    line-height:2rem;
+    padding-left:0rem;
+}
+.home .container-fluid .row.improved-collab .col img{
+    width:20em;
+    height:15em;
+    filter: drop-shadow(.5rem .5rem 1rem );
+}
+.home .container-fluid .row.paper .col h3{
+    text-align:center;
+    line-height: 10px;
+    font-weight:500;
+} 
+.home .container-fluid .row.paper .col{
+    margin-left: 5rem;
+    margin-top: 3rem;
+    font-weight: 500;
+    text-align: center;
+    /* font-size:1rem; */
+    line-height:2rem;
+    padding-left:0rem;
+}
+.home .container-fluid .row.paper .col img{
+    width:20em;
+    height:15em;
+    filter: drop-shadow(.5rem .5rem 1rem );
+}
 /* CSS for success and error */
 .Result .container{
     background-color:var(--navbar-color) ;
