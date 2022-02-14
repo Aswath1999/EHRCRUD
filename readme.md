@@ -4,6 +4,8 @@
 
 <h2>Loginpage EHR</h2>
 ![alt text](loginehr.png)
+<img src="loginehr.png">
+
 
 <h2>Homepage EHR</h2>
 ![alt text](https://github.com/Aswath1999/EHRCRUD/blob/main/EHRhome.png)
