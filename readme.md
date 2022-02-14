@@ -3,16 +3,14 @@
 <br>
 
 <h2>Loginpage EHR</h2>
-![alt text](loginehr.png)
 <img src="loginehr.png">
 
-
 <h2>Homepage EHR</h2>
-![alt text](https://github.com/Aswath1999/EHRCRUD/blob/main/EHRhome.png)
+<img src="EHRhome.png">
 
 
 <h2>Patient record</h2>
-![alt text](https://github.com/Aswath1999/EHRCRUD/blob/main/homeehr.png)
+<img src="homeehr.png">
 
 <h2>Create patient form</h2>
-![alt text](createehr.png)
+<img src="createehr.png">
