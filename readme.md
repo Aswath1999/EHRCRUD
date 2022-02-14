@@ -3,7 +3,7 @@
 <br>
 
 <h2>Loginpage EHR</h2>
-![alt text](https://github.com/Aswath1999/EHRCRUD/blob/main/loginehr.png)
+![alt text](https://github.com/Aswath1999/EHRCRUD/blob/main/loginehr.png?raw=true)
 
 <h2>Homepage EHR</h2>
 ![alt text](https://github.com/Aswath1999/EHRCRUD/blob/main/EHRhome.png)
