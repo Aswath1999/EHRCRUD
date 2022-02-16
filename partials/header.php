@@ -38,8 +38,8 @@
             // $mail->SMTPDebug = 2;
             $mail->Host = 'smtp.gmail.com'; // Specify  SMTP server
             $mail->SMTPAuth = true; // Auth. SMTP
-            $mail->Username =  // Mail who send by PHPMailer
-            $mail->Password = ; // your pass mail box
+            $mail->Username = your email id // Mail who send by PHPMailer
+            $mail->Password = your password; // your pass mail box
             $mail->SMTPSecure = 'tls'; // Accept SSL
             $mail->Port = 587; // port of your out server
             $mail->setFrom($from); // Mail to send at
