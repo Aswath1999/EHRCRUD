@@ -14,3 +14,5 @@
 
 <h2>Create patient form</h2>
 <img src="createehr.png">
+
+<p>Fill in the email id and password in the headers.php page.</p>
